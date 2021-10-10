@@ -1,0 +1,99 @@
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .body{
+    display: flex;
+    margin-top: 30px;
+    width: 50vw;
+    border: 1px solid lightgray;
+    border-radius: 1%;
+    padding: 50px;
+  }
+  
+  .main-signup{
+    width: 80%;
+  }
+  
+  .applogo{
+    width: 30%;
+  }
+  
+  .create-signup{
+    font-size: 25px;
+    font-weight: 400;  
+  }
+  
+  .name-signup,.password-signup{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 30vw;
+    /* height: 70px; */
+    grid-gap: 3%;
+    margin-top: 20px;
+  }
+  
+  .user-signup{
+    margin-top: 25px;
+  }
+  
+  #user-signup{
+    width: 28vw;
+  }
+  
+  .user-text-signup, .password-condition{
+    margin-top: 0%;
+    font-size: 13px;
+    color: #5F6368;
+    margin-left: 15px;
+  }
+  
+  .show-password{
+    color: #202124;
+    /* font-size: 2px; */
+  }
+  
+  .signup-end{
+    display: flex;
+    width: 30vw;
+    justify-content: space-between;
+  }
+  
+  .next-signup{
+    width: 85px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 9%;
+    height: 38px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .instead-signup{
+    color: #1a73e8;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  
+  .link-signup{
+    text-decoration: none;
+  }
+  
+  
+  
+  
+  .image-div{
+    display: flex;
+    justify-content: center;
+    /* height: 100%; */
+    /* width: 50%; */
+  }
+  
+  .img-signup{
+    width: 250px;
+  }
+  
+  
