@@ -16,14 +16,15 @@ const Usersignup = () => {
                     <h1 className='create-signup'>Create your Fundoo account</h1>
                     <p>Continue to Fundoo</p>
                     <div className='name-signup'>
-                    <TextField id="firstName-signip" label="First name" variant="outlined" size='small' />
-                    <TextField id="lastName-signup" label="Last Name" variant="outlined" size='small'/>
+                        <div className='textfield'><TextField id="firstName-signip" label="First name" variant="outlined" size='small' /></div>
+                        <div className='textfield'><TextField id="lastName-signup" label="Last Name" variant="outlined" size='small'/></div>
+                    
                     </div>
                     <div className='user-signup'><TextField id="user-signup" label="Username" variant="outlined" size='small' /></div>
                     <p className='user-text-signup'>You can use letters, symbols and periods</p>
                     <div className='password-signup'>
-                    <TextField id="password" label="Password" variant="outlined" size='small' />
-                    <TextField id="confirm" label="Confirm" variant="outlined" size='small' />
+                    <div className='textfield'><TextField id="password" label="Password" variant="outlined" size='small' /></div>
+                    <div className='textfield'><TextField id="confirm" label="Confirm" variant="outlined" size='small' /></div>
                     </div>
                     <p className='password-condition'>Use 8 or more characters with a mix of letters, numbers & symbols</p>
                         <FormControlLabel className='show-password' control={<Checkbox />} label="Show password" />

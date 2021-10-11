@@ -13,6 +13,7 @@
     border: 1px solid lightgray;
     border-radius: 1%;
     padding: 50px;
+    overflow: hidden;
   }
   
   .f,.d{
@@ -83,7 +84,7 @@
   
   .signup-end{
     display: flex;
-    width: 30vw;
+    width: 29vw;
     justify-content: space-between;
   }
   
@@ -124,4 +125,51 @@
   }
   
   
-  
+@media screen and (max-width:900px) {
+  .body-signup{
+    width: 100vw;
+    padding-left: 100px;
+  }
+
+  .image-div{
+    display: none;
+  }
+
+  .name-signup, .password-signup{
+    /* margin-bottom: 20px; */
+    display: inline;
+    /* width: 100vw; */
+  }
+
+  #firstName-signip,#lastName-signup,#user-signup,#password,#confirm{
+    width: 70vw;
+  }
+
+  .textfield{
+    margin-top: 25px;
+  }
+
+  .signup-end{
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .body-signup{
+    width: 100vw;
+    padding-top: 0%;
+    padding-left: 40px;
+  }
+
+  .create-signup{
+    font-size: 19px;
+  }
+
+  .signup-end{
+    width: 75vw;
+  }
+
+  #firstName-signip,#lastName-signup,#user-signup,#password,#confirm{
+    width: 65vw;
+  }
+}
