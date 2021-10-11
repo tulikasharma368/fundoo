@@ -3,13 +3,15 @@ import './App.css';
 import Signin from './pages/signin/Signin';
 import Forgotpass from './pages/forgot-pass/Forgotpass.jsx';
 import Usersignup from './pages/registration/UserSignup';
+import Forgotmail from './pages/forgot-mail/Fotgotmail.jsx';
 
 function App() {
   return (
     <div className="App">
-        <Forgotpass/>
+        {/* <Forgotmail/> */}
+        {/* <Forgotpass/> */}
         {/* <Signin/> */}
-        {/* <Usersignup/> */}
+        <Usersignup/>
     </div>
   );
 }

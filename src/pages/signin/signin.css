@@ -26,6 +26,12 @@
     font-weight: 400;
   }
 
+  .forgot{
+    display: flex;
+    justify-content: start;
+    width: 25vw;
+  }
+
   .mail-signin-div{
     margin-top: 20px;
     width: 25vw;
@@ -79,6 +85,10 @@
   .signup-end{
     width: 35vw;
   }
+
+  .forgot{
+    width: 30vw;
+  }
 }
 
 @media screen and (max-width:800px) {
@@ -107,6 +117,10 @@
 
   .signup-end{
     width: 55vw;
+  }
+
+  .forgot{
+    width: 50vw;
   }
 }
 
