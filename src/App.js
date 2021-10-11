@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import './registration/UserSignup.jsx';
-import Usersignup from './registration/UserSignup';
+import Signin from './pages/signin/Signin';
+import Forgotpass from './pages/forgot-pass/Forgotpass.jsx';
+import Usersignup from './pages/registration/UserSignup';
 
 function App() {
   return (
     <div className="App">
-        <Usersignup/>
+        {/* <Forgotpass/> */}
+        <Signin/>
+        {/* <Usersignup/> */}
     </div>
   );
 }

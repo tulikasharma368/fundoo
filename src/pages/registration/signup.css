@@ -1,18 +1,44 @@
 .signup-page {
     display: flex;
     justify-content: center;
+    height: 100%;
     align-content: center;
   }
   
-  .body{
+  .body-signup{
     display: flex;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    /* height: fit-content; */
     width: 50vw;
     border: 1px solid lightgray;
     border-radius: 1%;
     padding: 50px;
   }
   
+  .f,.d{
+    color: blue;
+    font-size: 23px;
+    font-weight: 500;
+  }
+
+  .u,.o2{
+    color: red;
+    font-size: 23px;
+    font-weight: 500;
+  }
+
+  .n{
+    color: orange;
+    font-size: 23px;
+    font-weight: 500;
+  }
+
+  .o{
+    color: green;
+    font-size: 23px;
+    font-weight: 500;
+  }
+
   .main-signup{
     width: 80%;
   }
@@ -70,6 +96,7 @@
     height: 38px;
     font-weight: bold;
     margin-top: 10px;
+    cursor: pointer;
   }
   
   .instead-signup{

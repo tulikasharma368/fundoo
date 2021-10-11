@@ -1,0 +1,142 @@
+.signin-page {
+    display: flex;
+    justify-content: center;
+    /* height: 80%; */
+    align-content: center;
+  }
+  
+  .body-signin{
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    justify-content: center;
+    /* margin-top: 30px; */
+    /* height: 80vh; */
+    width: 30vw;
+    border: 1px solid lightgray;
+    border-radius: 1%;
+    padding: 50px;
+    padding-top: 20px;
+    align-items: center;
+
+  }
+
+  .signin{
+    margin: 0%;
+    font-weight: 400;
+  }
+
+  .mail-signin-div{
+    margin-top: 20px;
+    width: 25vw;
+  }
+
+  #mailorphone-signin{
+    width: 25vw;
+  }
+
+  .pass-signin-div{
+    width: 25vw;
+  }
+
+  #password-signin{
+    width: 25vw;
+  }
+
+  .forgot-signin{
+    text-align: left;
+    align-self: flex-start;
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+
+  .signup-end{
+    width: 90%;
+    margin-left: 30px;
+  }
+
+@media screen and (max-width:900px) {
+  .body-signin{
+    width: 40vh;
+  } 
+
+  .mail-signin-div{
+    width: 30vw;
+  }
+
+  #mailorphone-signin{
+    width: 30vw;
+  }
+
+  .pass-signin-div{
+    width: 30vw;
+  }
+
+  #password-signin{
+    width: 30vw;
+  }
+
+  .signup-end{
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .body-signin{
+    width: 30vh;
+  } 
+}
+
+@media screen and (max-width:600px) {
+  .mail-signin-div{
+    margin-top: 15px;
+    width: 50vw;
+  }
+
+  #mailorphone-signin{
+    width: 50vw;
+  }
+
+  .pass-signin-div{
+    width: 50vw;
+  }
+
+  #password-signin{
+    width: 50vw;
+  }
+
+  .signup-end{
+    width: 55vw;
+  }
+}
+
+@media screen and (max-width:330px) {
+  .body-signin{
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 60vw;
+  }
+
+  .message-signin{
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  .mail-signin-div{
+    margin-top: 10px;
+    width: 50vw;
+  }
+
+  #mailorphone-signin{
+    width: 50vw;
+  }
+
+  .pass-signin-div{
+    width: 50vw;
+  }
+
+  #password-signin{
+    width: 50vw;
+  }
+
+}

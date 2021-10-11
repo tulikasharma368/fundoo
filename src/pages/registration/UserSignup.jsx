@@ -1,19 +1,18 @@
 import React from 'react';
-import '../css/signup.css'
+import './signup.css'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import logo from '../assets/logo.png';
-import imgsignup from '../assets/imgsignup.svg';
+import imgsignup from './assets/imgsignup.svg';
 
 const Usersignup = () => {
     return (
         <div className='signup-page'>
-            <div className='body'>
+            <div className='body-signup'>
                 <div className='main-signup'>
-                    <img src = {logo} className = "applogo"></img>
+                    <p className='fundoo-logo'><span className='f'>F</span><span className='u'>U</span><span className='n'>N</span><span className='d'>D</span><span className='o'>O</span><span className='o2'>O</span></p>
                     <h1 className='create-signup'>Create your Fundoo account</h1>
                     <p>Continue to Fundoo</p>
                     <div className='name-signup'>

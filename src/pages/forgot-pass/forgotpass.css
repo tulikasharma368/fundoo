@@ -1,0 +1,22 @@
+.forgotpass-page {
+    display: flex;
+    justify-content: center;
+    /* height: 80%; */
+    align-content: center;
+  }
+  
+  .body-forgotpass{
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    justify-content: center;
+    /* margin-top: 30px; */
+    /* height: 80vh; */
+    width: 30vw;
+    border: 1px solid lightgray;
+    border-radius: 1%;
+    padding: 50px;
+    padding-top: 20px;
+    align-items: center;
+
+  }
