@@ -6,8 +6,8 @@ import TextField from '@mui/material/TextField';
 
 const Forgotpass = () => {
     return (
-			<div className='forgotpass-page'>
-				<div className='body-forgotpass'>
+			<div className='signin-page'>
+				<div className='body-signin'>
 					<div>
 						<p>
 							<span className='f'>F</span>                
@@ -18,13 +18,16 @@ const Forgotpass = () => {
 							<span className='o2'>o</span>
 						</p>
 					</div>
-					<h2 className='signin'>Change your password</h2>
+					<h2 className='signin change'>Change your password</h2>
 					<p className='message-signin'>Enter the new password</p>
 					<div className='mail-signin-div'>
 						<TextField id="mailorphone-signin" label="New password" variant="outlined" size='small' />
 					</div>
-					<div className='pass-signin-div'>
+					<div className='pass-signin-div confirmpass-forgotpass'>
 						<TextField id="password-signin" label="Confirm password" variant="outlined" size='small' />
+					</div>
+					<div className='next-forgotpass'>
+						<button className='next-signup'>Next</button>
 					</div>
 				</div>
 			</div>

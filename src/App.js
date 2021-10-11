@@ -7,8 +7,8 @@ import Usersignup from './pages/registration/UserSignup';
 function App() {
   return (
     <div className="App">
-        {/* <Forgotpass/> */}
-        <Signin/>
+        <Forgotpass/>
+        {/* <Signin/> */}
         {/* <Usersignup/> */}
     </div>
   );
