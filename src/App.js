@@ -10,6 +10,7 @@ import Usersignup from './pages/registration/UserSignup';
 import Signin from './pages/signin/Signin';
 import Forgotmail from './pages/forgot-mail/Fotgotmail.jsx';
 import Resetpass from './pages/reset-pass/Resetpass';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/signup' component={Usersignup}/>
           <Route exact path='/forgotmail' component={Forgotmail}/>
           <Route exact path='/resetpassword' component={Resetpass}/>
+          <Route exact path='/dashboard' component={Dashboard}/>
         </Switch>
       </Router>
     </div>
