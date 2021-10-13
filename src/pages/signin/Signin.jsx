@@ -1,11 +1,61 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+  } from "react-router-dom";  
 import '../registration/signup.css'
-// import Signup from '../registration/UserSignup.jsx'
 import './signin.css'
 import TextField from '@mui/material/TextField';
 
-const Signin = () => {
-    return (
+
+
+
+class Signin extends Component {
+	constructor(props){
+        super(props);
+        this.state={
+            mailorphone:"",
+            password:"",
+            mailorphoneError:false,
+            passwordError:false,
+        }
+    }
+
+    checkValidation = () => {
+        var isError = false;
+        const errorsstate = this.state;
+
+        errorsstate.mailorphoneError = this.state.mailorphone !== ''? false : true;
+        errorsstate.passwordError = this.state.password !== ''? false : true;
+
+        this.setState({
+            ...errorsstate
+        })
+
+        
+        return isError = errorsstate.mailorphoneError || errorsstate.passwordError;
+    }
+
+    next = () => {
+        console.log('inside checkValidation');
+        var isValid = this.checkValidation();
+        console.log(isValid);
+        if(!isValid){
+            console.log("validation done"); 
+        }
+    }
+
+    change = (e) => {
+        // this.next();
+        // console.log(e.target.value);
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+	render() {
+		return (
 			<div className='signin-page'>
 				<div className='body-signin'>
 					<div>
@@ -21,24 +71,45 @@ const Signin = () => {
 					<h2 className='signin'>Sign in</h2>
 					<p className='message-signin'>Continue to Fundoo</p>
 					<div className='mail-signin-div'>
-						<TextField id="mailorphone-signin" label="Email or phone" variant="outlined" size='small' />
+						<TextField 
+						id="mailorphone-signin" 
+						name='mailorphone'
+						label="Email or phone" 
+						variant="outlined" 
+						size='small' 
+						error={this.state.mailorphoneError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.mailorphoneError ? 'Email or phone number is required' : ''}
+						/>
 					</div>
 					<div className='forgot'>
-						<a href="#" className='link-signup'><p className='instead-signup forgot-signin'>Forgot e-mail?</p></a>
+						<Link to='/forgotmail' className='link-signup'><p className='instead-signup forgot-signin'>Forgot e-mail?</p></Link>
 					</div>
 					<div className='pass-signin-div'>
-						<TextField id="password-signin" label="Password" variant="outlined" size='small' />
+						<TextField 
+						id="password-signin" 
+						name='password'
+						label="Password" 
+						type='password'
+						variant="outlined" 
+						size='small' 
+						error={this.state.passwordError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.passwordError ? 'Password is required' : ''}
+						/>
 					</div>
 					<div className='forgot'>
 						<a href="#" className='link-signup'><p className='instead-signup forgot-signin'>Forgot password?</p></a>
 					</div>
 					<div className='signup-end'>
-						<a href="#" className='link-signup'><p className='instead-signup'>Create account</p></a>
-						<a href="#" className='link-signup'><button className='next-signup'>Next</button></a>
+						<Link className='link-signup' to='/signup'><p className='instead-signup'>Create account</p></Link>
+						<a href="#" className='link-signup'><button className='next-signup' onClick={this.next}>Next</button></a>
           </div>
 				</div>
 			</div>
-    );
+		);
+	}
 }
 
 export default Signin;
+

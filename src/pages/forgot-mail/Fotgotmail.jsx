@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../registration/signup.css';
 import '../signin/signin.css';
-import '../forgot-pass/forgotpass.css'
+import '../reset-pass/resetpass.css'
 import './forgotmail.css'
 import TextField from '@mui/material/TextField';
 
-const Fotgotmail = () => {
-    return (
-      <div className='signin-page'>
+class Fotgotmail extends Component {
+	constructor(props){
+        super(props);
+        this.state={
+            mailorphone:"",
+            mailorphoneError:false
+        }
+    }
+
+    checkValidation = () => {
+        var isError = false;
+        const errorsstate = this.state;
+
+        errorsstate.mailorphoneError = this.state.mailorphone !== ''? false : true;
+
+        this.setState({
+            ...errorsstate
+        })
+
+        
+        return isError = errorsstate.email;
+    }
+
+    next = () => {
+        console.log('inside checkValidation');
+        var isValid = this.checkValidation();
+        console.log(isValid);
+        if(!isValid){
+            console.log("validation done"); 
+        }
+    }
+
+    change = (e) => {
+        // this.next();
+        // console.log(e.target.value);
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+	render() {
+		return (
+			<div className='signin-page'>
 				<div className='body-signin'>
 					<div>
 						<p>
@@ -22,14 +61,24 @@ const Fotgotmail = () => {
 					<h2 className='signin change'>Find your email</h2>
 					<div className=' recoverymail'><p className='message-signin'>Enter your phone number or recovery mail</p></div>
 					<div className='mail-signin-div'>
-						<TextField id="mailorphone-signin" label="Phone number or email" variant="outlined" size='small' />
+						<TextField 
+						id="mailorphone-signin" 
+						name='mailorphone'
+						label="Phone number or email" 
+						variant="outlined" 
+						size='small' 
+						error={this.state.mailorphoneError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.mailorphoneError ? 'Email or phone number is required' : ''}
+						/>
 					</div>
 					<div className='next-forgotpass'>
-						<button className='next-signup'>Next</button>
+						<button className='next-signup' onClick={this.next}>Next</button>
 					</div>
 				</div>
 			</div>
-    );
+		);
+	}
 }
 
 export default Fotgotmail;

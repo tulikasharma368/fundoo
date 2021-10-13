@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../registration/signup.css';
 import '../signin/signin.css';
-import './forgotpass.css'
+import './resetpass.css'
 import TextField from '@mui/material/TextField';
 
-const Forgotpass = () => {
-    return (
+class Forgotpass extends Component {
+	render() {
+		return (
 			<div className='signin-page'>
 				<div className='body-signin'>
 					<div>
@@ -18,7 +19,7 @@ const Forgotpass = () => {
 							<span className='o2'>o</span>
 						</p>
 					</div>
-					<h2 className='signin change'>Change your password</h2>
+					<h2 className='signin change'>Reset your password</h2>
 					<p className='message-signin'>Enter the new password</p>
 					<div className='mail-signin-div'>
 						<TextField id="mailorphone-signin" label="New password" variant="outlined" size='small' />
@@ -31,7 +32,8 @@ const Forgotpass = () => {
 					</div>
 				</div>
 			</div>
-    );
+		);
+	}
 }
 
 export default Forgotpass;

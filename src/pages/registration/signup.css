@@ -1,14 +1,15 @@
 .signup-page {
     display: flex;
     justify-content: center;
-    /* height: 100%; */
-    align-content: center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
   }
   
   .body-signup{
     display: flex;
     /* margin-top: 30px; */
-    /* height: fit-content; */
+    height: fit-content;
     width: 50vw;
     border: 1px solid lightgray;
     border-radius: 1%;
@@ -127,7 +128,7 @@
   
 @media screen and (max-width:900px) {
   .body-signup{
-    width: 100vw;
+    width: 70vw;
     padding-left: 100px;
   }
 
@@ -155,10 +156,15 @@
 }
 
 @media screen and (max-width:600px) {
+  .signup-page {
+    height: 120vh;
+  }
+  
   .body-signup{
     width: 100vw;
     padding-top: 0%;
     padding-left: 40px;
+    border: none;
   }
 
   .create-signup{
