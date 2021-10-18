@@ -1,6 +1,8 @@
 import * as React from 'react';
-import "./dashboard.css"
-import { styled, useTheme } from '@mui/material/styles';
+import "./dashboard.css";
+import keep from './keep.png';
+import { styled, alpha } from '@mui/material/styles';
+import {useTheme } from '@mui/material/styles';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
@@ -22,6 +24,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import SearchIcon from '@mui/icons-material/Search';
+import InputBase from '@mui/material/InputBase';
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 
 const drawerWidth = 240;
@@ -65,8 +70,8 @@ const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    // marginLeft: drawerWidth,
+    // width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -74,33 +79,74 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
-    ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
-    }),
-    ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
-    }),
+const Drawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  width: drawerWidth,
+  flexShrink: 0,
+  whiteSpace: 'nowrap',
+  boxSizing: 'border-box',
+  ...(open && {
+    ...openedMixin(theme),
+    '& .MuiDrawer-paper': openedMixin(theme),
   }),
-);
+  ...(!open && {
+    ...closedMixin(theme),
+    '& .MuiDrawer-paper': closedMixin(theme),
+  }),
+}));
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
+
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}));
 
 export default function Dashboard() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
+    if (open == false) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
   };
 
   return (
@@ -115,41 +161,94 @@ export default function Dashboard() {
             edge="start"
             sx={{
               marginRight: '36px',
-              ...(open && { display: 'none' }),
             }}
           >
             <MenuIcon />
           </IconButton>
+          <img src={keep} className='keep_logo' alt="keep image" />
           <Typography variant="h6" noWrap component="div">
             Fundoo Notes
           </Typography>
+          <box className='searchbox'>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon/>
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          </box>
+          < RefreshIcon/>
+          {/* <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+           <div className = "icons">
+            <IconButton size="large" color="inherit">
+              < Badge className = "refresh">
+         
+                <Refresh />
+                </Badge>
+                </IconButton>
+                
+            <IconButton size="large" color="inherit">
+                < Badge className = "list">
+                <ViewStreamOutlinedIcon/>
+                </Badge>
+                </IconButton>
+
+                
+            <IconButton size="large" color="inherit">
+
+
+                < Badge className = "settings">
+                <SettingsOutlined />
+                </Badge>
+       
+            </IconButton>
+            </div>
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              className="apps"
+            >
+                <AppsIcon/>
+    
+            </IconButton>
+          </Box> */}
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
+        <DrawerHeader></DrawerHeader>
+
         <List>
-          {['Notes', 'Reminders', 'Edit Labels', 'Archive' , 'Bin'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index <= 0 ? <LightbulbOutlinedIcon/>: <InboxIcon/> 
-                && index <=1 ? <NotificationsNoneIcon/> : <InboxIcon/>
-                && index <=2 ? <ModeEditOutlineOutlinedIcon/> : <InboxIcon/>
-                && index <=3 ? <ArchiveOutlinedIcon/> : <InboxIcon/>
-                && index <=4 ? <DeleteOutlineOutlinedIcon/> : <InboxIcon/>}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Bin'].map(
+            (text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index <= 0 ? (
+                    <LightbulbOutlinedIcon />
+                  ) : <InboxIcon /> && index <= 1 ? (
+                    <NotificationsNoneIcon />
+                  ) : <InboxIcon /> && index <= 2 ? (
+                    <ModeEditOutlineOutlinedIcon />
+                  ) : <InboxIcon /> && index <= 3 ? (
+                    <ArchiveOutlinedIcon />
+                  ) : <InboxIcon /> && index <= 4 ? (
+                    <DeleteOutlineOutlinedIcon />
+                  ) : (
+                    <InboxIcon />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-       
       </Box>
     </Box>
   );

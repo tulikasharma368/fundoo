@@ -9,3 +9,27 @@
 .css-19z1ozs-MuiPaper-root-MuiAppBar-root {
     color:black !important;
 }
+
+.css-dhvns5-MuiButtonBase-root-MuiIconButton-root {
+    color: black !important;
+}
+
+.css-8u39c-MuiTypography-root {
+    color: black !important;
+}
+
+.keep_logo{
+    height: 30px;
+    margin-right: 10px;
+}
+
+.searchbox{
+    background-color: #F1F3F4;
+    border-radius: 2%;
+    margin-left: 20px;
+    width: 50%;
+}
+
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input{
+    height: 30px;
+}
