@@ -1,6 +1,7 @@
 import * as React from 'react';
 import "./dashboard.css";
 import Takeanote from './dashboardcomponents/takeanote/Takeanote';
+import Displaynotes from './dashboardcomponents/displaynotes/Displaynotes';
 import keep from './keep.png';
 import { styled, alpha } from '@mui/material/styles';
 import {useTheme } from '@mui/material/styles';
@@ -233,7 +234,8 @@ export default function Dashboard() {
     
     <Takeanote/>
     
-    
+    <Displaynotes/>
+
     </div>
     
   );

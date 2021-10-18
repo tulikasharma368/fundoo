@@ -1,0 +1,19 @@
+.displaynotes{
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    margin-top: 70px;
+}
+
+.inner-display{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 50%;
+}
+
+.note_content{
+    padding: 10px;
+    border: 2px solid gainsboro;
+    border-radius: 8px;
+}
