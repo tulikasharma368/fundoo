@@ -26,10 +26,29 @@
 .searchbox{
     background-color: #F1F3F4;
     border-radius: 2%;
-    margin-left: 20px;
-    width: 50%;
+    margin-left: 30px;
+    width: 55%;
+}
+.searchicon{
+    margin-left: -20px;
+    color: #5f6368;
+}
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input{
+    height: 25px;
+    width: 100%;
 }
 
-.css-1kcggdq-MuiInputBase-root .MuiInputBase-input{
-    height: 30px;
+.dashboardIcons{
+    display: flex;
+    justify-content: space-evenly;
+    width: 13%;
+    margin-left: 15px;
+    color: #5f6368;
 }
+
+.appsicon{
+    display: flex;
+    margin-left: 15px;
+    color: #5f6368;
+}
+

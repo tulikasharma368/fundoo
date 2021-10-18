@@ -53,14 +53,17 @@ class Signin extends Component {
         if(!isValid){
             console.log("validation done"); 
 			
-			let signupObj = {
-                "firstName": this.state.mailorphone,
-                "lastName": this.state.password
-                // "service": "advance",
+			let signinObj = {
+                "email": this.state.mailorphone,
+                "password": this.state.password,
+                "service": "advance",
             }
-            console.log((signupObj));
-            obj.Signup(signupObj)
+            console.log((signinObj));
+            obj.Signin(signinObj)
             .then((response)=>{
+				var timer  = setTimeout(function(){
+                    window.location = '/dashboard'
+                }, 2000);
                 console.log(response);
             }).catch(function(error){
                 console.log(error);

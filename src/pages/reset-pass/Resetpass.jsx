@@ -3,8 +3,68 @@ import '../registration/signup.css';
 import '../signin/signin.css';
 import './resetpass.css'
 import TextField from '@mui/material/TextField';
+import Userservices from '../../services/Userservice';
+const obj = new Userservices();
 
 class Forgotpass extends Component {
+	constructor(props){
+        super(props);
+        this.state={
+            password:"",
+			confirmpassword:"",
+			passwordError:false,
+			confirmpasswordError:false
+        }
+    }
+
+	
+
+    checkValidation = () => {
+        var isError = false;
+        const errorsstate = this.state;
+
+        errorsstate.passwordError = this.state.password !== ''? false : true;
+        errorsstate.confirmpasswordError = this.state.confirmpassword !== ''? false : true;
+
+        this.setState({
+            ...errorsstate
+        })
+
+        
+        return isError = errorsstate.passwordError || errorsstate.confirmpasswordError;
+    }
+
+    next = () => {
+        console.log('inside checkValidation');
+        var isValid = this.checkValidation();
+        console.log(isValid);
+        if(isValid){
+            console.log("validation done"); 
+			
+			let resetpassObj = {
+                "newPassword": this.state.password,
+                "service": "advance",
+            }
+            console.log((resetpassObj));
+            obj.Resetpass(resetpassObj)
+            .then((response)=>{
+                console.log(response);
+            }).catch(function(error){
+                console.log(error);
+            })
+        }
+    }
+    
+	
+
+    change = (e) => {
+        // this.next();
+        // console.log(e.target.value);
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+	
 	render() {
 		return (
 			<div className='signin-page'>
@@ -22,13 +82,33 @@ class Forgotpass extends Component {
 					<h2 className='signin change'>Reset your password</h2>
 					<p className='message-signin'>Enter the new password</p>
 					<div className='mail-signin-div'>
-						<TextField id="mailorphone-signin" label="New password" variant="outlined" size='small' />
+						<TextField 
+						id="mailorphone-signin" 
+						name='password'
+						type='password'
+						label="New password" 
+						variant="outlined" 
+						size='small' 
+						error={this.state.passwordError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.passwordError ? 'Password is required' : ''}
+						/>
 					</div>
 					<div className='pass-signin-div confirmpass-forgotpass'>
-						<TextField id="password-signin" label="Confirm password" variant="outlined" size='small' />
+						<TextField 
+						id="password-signin" 
+						name="confirmpass"
+						label="Confirm password" 
+						type="password"
+						variant="outlined" 
+						size='small' 
+						error={this.state.passwordError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.passwordError ? 'Confirm password is required' : ''}
+						/>
 					</div>
 					<div className='next-forgotpass'>
-						<button className='next-signup'>Next</button>
+						<button className='next-signup' onClick={this.next}>Next</button>
 					</div>
 				</div>
 			</div>

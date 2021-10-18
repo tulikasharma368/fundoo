@@ -4,6 +4,8 @@ import '../signin/signin.css';
 import '../reset-pass/resetpass.css'
 import './forgotmail.css'
 import TextField from '@mui/material/TextField';
+import Userservices from '../../services/Userservice'
+const obj = new Userservices();
 
 class Fotgotmail extends Component {
 	constructor(props){
@@ -25,7 +27,7 @@ class Fotgotmail extends Component {
         })
 
         
-        return isError = errorsstate.email;
+        return isError = errorsstate.mailorphoneError;
     }
 
     next = () => {
@@ -35,6 +37,16 @@ class Fotgotmail extends Component {
         if(!isValid){
             console.log("validation done"); 
         }
+		let forgotObj = {
+			"email": this.state.mailorphone
+		}
+		console.log((forgotObj));
+		obj.Forgot(forgotObj)
+		.then((response)=>{
+			console.log(response);
+		}).catch(function(error){
+			console.log(error);
+		})
     }
 
     change = (e) => {

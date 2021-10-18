@@ -13,7 +13,6 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import imgsignup from './assets/imgsignup.svg';
-import signup from '../../services/Axiosservice'
 import Userservices from '../../services/Userservice'
 const obj = new Userservices();
 
@@ -64,14 +63,18 @@ class Usersignup extends Component {
             let signupObj = {
                 "firstName": this.state.fname,
                 "lastName": this.state.lname, 
-                "username": this.state.username,
+                "email": this.state.username,
                 "password": this.state.password,
-                // "service": "advance",
+                "service": "advance",
             }
             console.log((signupObj));
             obj.Signup(signupObj)
             .then((response)=>{
                 console.log(response);
+                var timer  = setTimeout(function(){
+                    window.location = '/dashboard'
+                }, 2000);
+
             }).catch(function(error){
                 console.log(error);
             })

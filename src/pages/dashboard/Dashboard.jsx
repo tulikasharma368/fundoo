@@ -27,6 +27,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import ViewStreamSharpIcon from '@mui/icons-material/ViewStreamSharp';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AppsIcon from '@mui/icons-material/Apps';
 
 
 const drawerWidth = 240;
@@ -172,7 +175,7 @@ export default function Dashboard() {
           <box className='searchbox'>
             <Search>
               <SearchIconWrapper>
-                <SearchIcon/>
+                <SearchIcon className='searchicon'/>
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Search…"
@@ -180,43 +183,16 @@ export default function Dashboard() {
               />
             </Search>
           </box>
+          <div className='dashboardIcons'>
           < RefreshIcon/>
-          {/* <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-           <div className = "icons">
-            <IconButton size="large" color="inherit">
-              < Badge className = "refresh">
-         
-                <Refresh />
-                </Badge>
-                </IconButton>
-                
-            <IconButton size="large" color="inherit">
-                < Badge className = "list">
-                <ViewStreamOutlinedIcon/>
-                </Badge>
-                </IconButton>
-
-                
-            <IconButton size="large" color="inherit">
-
-
-                < Badge className = "settings">
-                <SettingsOutlined />
-                </Badge>
-       
-            </IconButton>
-            </div>
-            <IconButton
-              size="large"
-              edge="end"
-              color="inherit"
-              className="apps"
-            >
-                <AppsIcon/>
-    
-            </IconButton>
-          </Box> */}
+          <ViewStreamSharpIcon/>
+          <SettingsIcon/>
+          </div>
+          <div className='appsicon'>
+            <AppsIcon/>
+          </div>
+          
+          
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
