@@ -1,5 +1,6 @@
 import * as React from 'react';
 import "./dashboard.css";
+import Takeanote from './dashboardcomponents/takeanote/Takeanote';
 import keep from './keep.png';
 import { styled, alpha } from '@mui/material/styles';
 import {useTheme } from '@mui/material/styles';
@@ -153,7 +154,8 @@ export default function Dashboard() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <div>
+      <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -225,7 +227,15 @@ export default function Dashboard() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
+        
       </Box>
     </Box>
+    
+    <Takeanote/>
+    
+    
+    </div>
+    
   );
 }
+
