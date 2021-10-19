@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './takeanote.css';
 import { useState } from "react";
 import Button from "@mui/material/Button";
-// import IconButton from '@mui/material/IconButton';
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined';
@@ -28,7 +27,8 @@ class Takeanote extends Component {
             hide:false,
             title:"",
             description:"",
-            snackbarmsg:""
+            snackbarmsg:"",
+            snackbaropen:false
         }
     }
 
@@ -115,6 +115,7 @@ class Takeanote extends Component {
                                 <input className="title" 
                                     aria-label="empty textarea" 
                                     placeholder="Title"
+                                    name='title'
                                     onChange ={e =>this.change(e)}
                                 />
                                 <div className='pin-icon'><PushPinOutlinedIcon/></div>
@@ -122,6 +123,7 @@ class Takeanote extends Component {
                             <div className='hide-takenote'>
                                 <input 
                                     className="forminput2" 
+                                    name='description'
                                     aria-label="empty textarea" 
                                     placeholder="Take a note..."
                                     onChange ={e =>this.change(e)}/>

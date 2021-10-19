@@ -10,6 +10,10 @@ class Axiosservice{
     postMeth(url,data,header=false){
         return axios.post(url,data,header);
     }
+
+    getMeth(url,data,header=false){
+        return axios.get(url,data,header);
+    }
 }
 
 export default Axiosservice;
