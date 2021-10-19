@@ -8,6 +8,7 @@ import {
 import '../registration/signup.css'
 import './signin.css'
 import TextField from '@mui/material/TextField';
+import { Snackbar, IconButton } from '@mui/material';
 import Userservices from '../../services/Userservice';
 const obj = new Userservices();
 
@@ -26,9 +27,14 @@ class Signin extends Component {
             password:"",
             mailorphoneError:false,
             passwordError:false,
+			snackbaropen: false, 
+            snackbarmsg: ""
         }
     }
 
+	snackbarClose = () => {
+        this.setState({snackbaropen: false});
+    };
 	
 
     checkValidation = () => {
@@ -61,11 +67,13 @@ class Signin extends Component {
             console.log((signinObj));
             obj.Signin(signinObj)
             .then((response)=>{
+				this.setState({snackbaropen:true, snackbarmsg: "Signin Successfull!"});
 				var timer  = setTimeout(function(){
                     window.location = '/dashboard'
                 }, 2000);
                 console.log(response);
             }).catch(function(error){
+				this.setState({snackbaropen:true, snackbarmsg: "Signin Failed!"});
                 console.log(error);
             })
         }
@@ -83,6 +91,18 @@ class Signin extends Component {
 	render(){
 		return (
 			<div className='signin-page'>
+				<Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    open={this.state.snackbaropen}
+                    autoHideDuration={6000}
+                    onClose={this.snackbarClose}
+                    message={<span id="message_id">{this.state.snackbarmsg}</span>}
+                    action={[
+                    <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                            X
+                    </IconButton>
+                    ]}
+                />
 				<div className='body-signin'>
 					<div>
 						<p>

@@ -13,6 +13,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import imgsignup from './assets/imgsignup.svg';
+import { Snackbar, IconButton } from '@mui/material';
 import Userservices from '../../services/Userservice'
 const obj = new Userservices();
 
@@ -31,9 +32,15 @@ class Usersignup extends Component {
             lnameError:false,
             usernameError:false,
             passwordError:false,
-            confirmpassError:false
+            confirmpassError:false,
+            snackbaropen: false, 
+            snackbarmsg: "",
         }
     }
+
+    snackbarClose = () => {
+        this.setState({snackbaropen: false});
+    };
 
     checkValidation = () => {
         var isError = false;
@@ -71,11 +78,13 @@ class Usersignup extends Component {
             obj.Signup(signupObj)
             .then((response)=>{
                 console.log(response);
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Successfull!"});
                 var timer  = setTimeout(function(){
                     window.location = '/dashboard'
                 }, 2000);
 
-            }).catch(function(error){
+            }).catch((error) => {
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Failed!"});
                 console.log(error);
             })
         }
@@ -95,6 +104,18 @@ class Usersignup extends Component {
         console.log(this.state);
         return (
             <div className='signup-page'>
+                <Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    open={this.state.snackbaropen}
+                    autoHideDuration={6000}
+                    onClose={this.snackbarClose}
+                    message={<span id="message_id">{this.state.snackbarmsg}</span>}
+                    action={[
+                    <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                            X
+                    </IconButton>
+                    ]}
+                />
                 <div className='body-signup'>
                 <div className='main-signup'>
                     <p className='fundoo-logo'>
