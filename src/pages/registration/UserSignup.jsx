@@ -81,9 +81,9 @@ class Usersignup extends Component {
                 this.setState({snackbaropen:true, snackbarmsg: "Signup Successfull!"});
                 var timer  = setTimeout(function(){
                     window.location = '/dashboard'
-                }, 2000);
+                }, 1000);
 
-            }).catch((error) => {
+            }).catch(error => {
                 this.setState({snackbaropen:true, snackbarmsg: "Signup Failed!"});
                 console.log(error);
             })
@@ -107,12 +107,12 @@ class Usersignup extends Component {
                 <Snackbar
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     open={this.state.snackbaropen}
-                    autoHideDuration={6000}
+                    autoHideDuration={3000}
                     onClose={this.snackbarClose}
                     message={<span id="message_id">{this.state.snackbarmsg}</span>}
                     action={[
                     <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
-                            X
+                            x
                     </IconButton>
                     ]}
                 />

@@ -3,6 +3,7 @@ import '../registration/signup.css';
 import '../signin/signin.css';
 import './resetpass.css'
 import TextField from '@mui/material/TextField';
+import { Snackbar, IconButton } from '@mui/material';
 import Userservices from '../../services/Userservice';
 const obj = new Userservices();
 
@@ -42,12 +43,15 @@ class Forgotpass extends Component {
             console.log("validation done"); 
 			
 			let resetpassObj = {
-                "newPassword": this.state.password,
-                "service": "advance",
+                "newPassword": this.state.password
             }
             console.log((resetpassObj));
             obj.Resetpass(resetpassObj)
             .then((response)=>{
+				this.setState({snackbaropen:true, snackbarmsg: "Password changed succesfully"});
+				var timer  = setTimeout(function(){
+                    window.location = '/'
+                }, 1000);
                 console.log(response);
             }).catch(function(error){
                 console.log(error);
@@ -68,6 +72,18 @@ class Forgotpass extends Component {
 	render() {
 		return (
 			<div className='signin-page'>
+				<Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    open={this.state.snackbaropen}
+                    autoHideDuration={3000}
+                    onClose={this.snackbarClose}
+                    message={<span id="message_id">{this.state.snackbarmsg}</span>}
+                    action={[
+                    <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                            x
+                    </IconButton>
+                    ]}
+                />
 				<div className='body-signin'>
 					<div>
 						<p>

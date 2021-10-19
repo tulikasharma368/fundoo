@@ -4,6 +4,7 @@ import '../signin/signin.css';
 import '../reset-pass/resetpass.css'
 import './forgotmail.css'
 import TextField from '@mui/material/TextField';
+import { Snackbar, IconButton } from '@mui/material';
 import Userservices from '../../services/Userservice'
 const obj = new Userservices();
 
@@ -12,9 +13,15 @@ class Fotgotmail extends Component {
         super(props);
         this.state={
             mailorphone:"",
-            mailorphoneError:false
+            mailorphoneError:false,
+			snackbaropen: false, 
+            snackbarmsg: ""
         }
     }
+
+	snackbarClose = () => {
+        this.setState({snackbaropen: false});
+    };
 
     checkValidation = () => {
         var isError = false;
@@ -43,8 +50,10 @@ class Fotgotmail extends Component {
 		console.log((forgotObj));
 		obj.Forgot(forgotObj)
 		.then((response)=>{
+			this.setState({snackbaropen:true, snackbarmsg: "Reset mail sent to registered email-id!"});
 			console.log(response);
-		}).catch(function(error){
+		}).catch(error => {
+			this.setState({snackbaropen:true, snackbarmsg: "Invalid email!"});
 			console.log(error);
 		})
     }
@@ -59,6 +68,18 @@ class Fotgotmail extends Component {
 	render() {
 		return (
 			<div className='signin-page'>
+				<Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    open={this.state.snackbaropen}
+                    autoHideDuration={3000}
+                    onClose={this.snackbarClose}
+                    message={<span id="message_id">{this.state.snackbarmsg}</span>}
+                    action={[
+                    <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                            x
+                    </IconButton>
+                    ]}
+                />
 				<div className='body-signin'>
 					<div>
 						<p>

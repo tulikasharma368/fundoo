@@ -8,7 +8,7 @@ import axios from "axios";
 
 class Axiosservice{
     postMeth(url,data,header=false){
-        return axios.post(url,data);
+        return axios.post(url,data,header);
     }
 }
 

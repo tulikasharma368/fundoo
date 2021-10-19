@@ -2,12 +2,21 @@ import Axiosservice from './Axiosservice';
 
 const obj = new Axiosservice();
 const baseUrl = 'http://fundoonotes.incubation.bridgelabz.com/api/';
-var url = baseUrl.split('/');
-const token = url[ url.length - 1 ];
-const header = {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+const token = localStorage.getItem("token");
+
+const headerConfig = {
+    headers : {
+        Authorization : token,
+    },
 };
+
+// var url = baseUrl.split('/');
+// const passtoken =  url[url.length-1];
+// const headerConfigPass = {
+//     headers:{
+//         Authorization : `Bearer ${passtoken}`,
+//     }
+// }
 
 class Userservice{
     Signup(data){
@@ -26,9 +35,15 @@ class Userservice{
     }
 
     Resetpass(data){
-        let response = obj.postMeth(`${baseUrl}user/reset-password`,data,header);
+        let response = obj.postMeth(`${baseUrl}user/reset-password`,data,headerConfig);
         return response;
     }
+
+    Addnote(data){
+        let response = obj.postMeth(`${baseUrl}notes/addNotes`,data,headerConfig);
+        return response;
+    }
+
 }
 
 export default Userservice;

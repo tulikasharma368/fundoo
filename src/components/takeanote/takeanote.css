@@ -41,6 +41,7 @@
 .title{
     margin-bottom: 10px;
     color: #202124;
+    border: none !important;
 }
 
 .title-pin{

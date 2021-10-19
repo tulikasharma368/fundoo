@@ -61,18 +61,18 @@ class Signin extends Component {
 			
 			let signinObj = {
                 "email": this.state.mailorphone,
-                "password": this.state.password,
-                "service": "advance",
+                "password": this.state.password
             }
             console.log((signinObj));
             obj.Signin(signinObj)
             .then((response)=>{
+				console.log(response);
+				localStorage.setItem("token", response.data.id);
 				this.setState({snackbaropen:true, snackbarmsg: "Signin Successfull!"});
 				var timer  = setTimeout(function(){
                     window.location = '/dashboard'
-                }, 2000);
-                console.log(response);
-            }).catch(function(error){
+                }, 1000);
+            }).catch (error => {
 				this.setState({snackbaropen:true, snackbarmsg: "Signin Failed!"});
                 console.log(error);
             })
@@ -94,12 +94,12 @@ class Signin extends Component {
 				<Snackbar
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     open={this.state.snackbaropen}
-                    autoHideDuration={6000}
+                    autoHideDuration={3000}
                     onClose={this.snackbarClose}
                     message={<span id="message_id">{this.state.snackbarmsg}</span>}
                     action={[
                     <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
-                            X
+                            x
                     </IconButton>
                     ]}
                 />
