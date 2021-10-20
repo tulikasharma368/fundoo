@@ -1,25 +1,31 @@
-import React, { Component } from 'react';
-import './displaynotes.css'
+import React from "react";
+import { useEffect } from "react";
+import "./displaynotes.css";
+import Shownotes from "./Shownotes";
+import Userservice from "../../services/Userservice";
+const obj = new Userservice();
 
-class Displaynotes extends Component {
-    render() {
-        return (
-            <div className='displaynotes'>
-                <div className='inner-display'>
-                    <div className="note_content">
-                        <h4>Anything</h4>
-                        <div className="content">1. first</div>
-                        <div className="content">2. second</div>
-                    </div>
-                    <div className="note_content">
-                        <h4>Something</h4>
-                        <div className="content">A. alphabet first</div>
-                        <div className="content">B. alphabet second</div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
+const Displaynotes = () => {
+  const [noteArray, setnoteArray] = React.useState([]);
+  useEffect(() => {
+    obj
+      .Displaynotes()
+      .then((response) => {
+        setnoteArray(response.data.data.data);
+        // console.log(noteArray);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  const noteList = noteArray.map((info) => <Shownotes info={info} />);
+
+  return (
+    <div className="displaynotes">
+      <div className="inner-display">{noteList}</div>
+    </div>
+  );
+};
 
 export default Displaynotes;

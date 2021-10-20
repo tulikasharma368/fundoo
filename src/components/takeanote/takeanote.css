@@ -58,7 +58,7 @@
 
 #icons{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 20px;
     margin-bottom: 15px;
     color: #202124;
@@ -73,8 +73,28 @@
 }
 
 .button{
-    margin: 0%;
+    /* margin: 0%; */
+    display: flex;
+    justify-content: end;
+    width: 32%;
     font-size: 14px;
     font-weight: 400;
     cursor: pointer;
+}
+
+.button > p{
+    margin: 0%;
+}
+
+.icons-takenote{
+    width: 60%; 
+    margin-left: -30px;
+    
+}
+
+.undoredo{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -10px;
+    width: 70px;
 }

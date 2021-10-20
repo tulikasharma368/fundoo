@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import './takeanote.css';
-import { useState } from "react";
-import Button from "@mui/material/Button";
 import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined';
-import AddAlertOutlined from '@mui/icons-material/AddAlertOutlined';
-import PersonAddOutlined from '@mui/icons-material/PersonAddOutlined';
-import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
-import ImageOutlined from '@mui/icons-material/ImageOutlined';
-import MoreVertOutlined from '@mui/icons-material/MoreVertOutlined';
-import ArchiveOutlined from '@mui/icons-material/ArchiveOutlined';
+
+// import ColorLensOutlined from '@mui/icons-material/ColorLensOutlined';
+
 import UndoOutlined from '@mui/icons-material/UndoOutlined';
 import RedoOutlined from '@mui/icons-material/RedoOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import { Snackbar, IconButton } from '@mui/material';
+import Icons from '../icons/Icons';
 import Userservices from '../../services/Userservice';
 let obj = new Userservices();
 
@@ -50,6 +46,7 @@ class Takeanote extends Component {
         obj.Addnote(notesobj)
         .then(response => {
             console.log(response);
+            // window.location.reload();
             this.setState({snackbaropen:true, snackbarmsg: "Note added successfully"});
         })
         .catch(error => {
@@ -129,36 +126,15 @@ class Takeanote extends Component {
                                     onChange ={e =>this.change(e)}/>
                             </div>
                             <div id="icons">
-                                <div className='inner-icons'>
-                                <AddAlertOutlined
-                                    style={{ fontSize: "large" }}
-                                >
-                                </AddAlertOutlined>
-                                <PersonAddOutlined
-                                    style={{ fontSize: "large" }}
-                                >
-                                </PersonAddOutlined>
-                                <ColorLensOutlined
-                                    style={{ fontSize: "large" }}
-                                >   
-                                </ColorLensOutlined>
-                                <ImageOutlined
-                                    style={{ fontSize: "large" }}
-                                >
-                                </ImageOutlined>
-                                <ArchiveOutlined
-                                    style={{ fontSize: "large" }}
-                                >
-                                </ArchiveOutlined>
-                                <MoreVertOutlined
-                                    style={{ fontSize: "large" }}
-                                >
-                                </MoreVertOutlined>
+                                <div className='icons-takenote'>
+                                    <Icons/>
+                                </div>
+                                <div className='undoredo'>
                                 <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>
                                 <RedoOutlined style={{ fontSize: "large" }}></RedoOutlined>
                                 </div>
-                                <div>
-                                    <p className="button" onClick = {this.close}>Close</p>
+                                <div className="button">
+                                    <p onClick = {this.close}>Close</p>
                                 </div>
                                 
                             </div>

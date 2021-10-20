@@ -11,8 +11,8 @@ class Axiosservice{
         return axios.post(url,data,header);
     }
 
-    getMeth(url,data,header=false){
-        return axios.get(url,data,header);
+    getMeth(url,header=false){
+        return axios.get(url,header);
     }
 }
 

@@ -44,8 +44,8 @@ class Userservice{
         return response;
     }
 
-    Displaynotes(data){
-        let response = obj.getMeth(`${baseUrl}notes/getNotesList`,data,headerConfig);
+    Displaynotes(){
+        let response = obj.getMeth(`${baseUrl}notes/getNotesList`,headerConfig);
         return response;
     }
 
