@@ -4,20 +4,18 @@ import "./shownotes.css";
 import Icons from "../icons/Icons";
 
 const ShowNotes = (props) => {
-  const showicons = () => {
-    return (
-      <div className="shownotes-icons">
-        <Icons />
-      </div>
-    );
-  };
-
   return (
     <div className="Note-mainContainer">
-      <div className="note-testContainer">
+      <div
+        className="note-testContainer"
+        style={{ backgroundColor: props.info.color }}
+      >
         <h4>{props.info.title}</h4>
         <div className="note-paragraph"> {props.info.description}</div>
-        {showicons()}
+
+        <div className="shownotes-icons">
+          <Icons id={props.info.id} />
+        </div>
       </div>
     </div>
   );

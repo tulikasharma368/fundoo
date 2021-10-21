@@ -11,6 +11,8 @@ import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
 import "./colorpallete/colorpallete.css";
 import "./icons.css";
+import Userservices from "../../services/Userservice";
+let obj = new Userservices();
 
 const colorsarrfun = [
   { clr: "#FFFFFF" },
@@ -27,7 +29,7 @@ const colorsarrfun = [
   { clr: "#e8eaed" },
 ];
 
-const Icons = () => {
+const Icons = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState();
@@ -38,11 +40,27 @@ const Icons = () => {
     setPlacement(newPlacement);
   };
 
-  console.log(colorsarrfun);
+  // console.log(colorsarrfun);
   const items = colorsarrfun.map((t, idx) => (
     <div
       className="innercolor"
-      style={{ backgroundColor: t.clr }} //    key={idx}
+      onClick={() => {
+        if (props.id == "") {
+          props.setColor(t.clr);
+        } else {
+          let colorobj = {
+            color: t.clr,
+            noteIdList: [props.id],
+          };
+          obj
+            .Changecolor(colorobj)
+            .then((response) => {
+              window.location.reload();
+            })
+            .catch((error) => console.log(error));
+        }
+      }}
+      style={{ backgroundColor: t.clr }}
     ></div>
   ));
 

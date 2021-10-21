@@ -23,7 +23,6 @@
 @media only screen and (max-width: 1024px) {
   .note-testContainer {
     width: 32vw;
-    height: 15vh;
   }
 }
 
@@ -31,6 +30,5 @@
   .note-testContainer {
     margin-bottom: 10px;
     width: 50vw;
-    height: 18vh;
   }
 }

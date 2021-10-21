@@ -49,7 +49,10 @@ class Userservice{
         return response;
     }
 
-    
+    Changecolor(data){
+        let response = obj.postMeth(`${baseUrl}notes/changesColorNotes`,data, headerConfig);
+        return response;
+    }
 
 }
 
