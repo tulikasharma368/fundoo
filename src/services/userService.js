@@ -53,7 +53,11 @@ class Userservice{
         let response = obj.postMeth(`${baseUrl}notes/changesColorNotes`,data, headerConfig);
         return response;
     }
-
+    
+    Archive(){
+        let response = obj.getMeth(`${baseUrl}notes/getArchiveNotesList`,headerConfig);
+        return response;
+    }
 }
 
 export default Userservice;

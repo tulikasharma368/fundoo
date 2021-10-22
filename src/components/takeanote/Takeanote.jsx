@@ -23,6 +23,7 @@ class Takeanote extends Component {
       snackbarmsg: "",
       color: "#ffffff",
       snackbaropen: false,
+      isArchived: false,
     };
   }
 
@@ -40,6 +41,7 @@ class Takeanote extends Component {
       title: this.state.title,
       description: this.state.description,
       color: this.state.color,
+      isArchived: this.state.isArchived,
     };
     console.log(notesobj);
     obj
@@ -54,7 +56,9 @@ class Takeanote extends Component {
           hide: false,
           title: "",
           description: "",
+          color: "#ffffff",
           snackbarmsg: "Note added successfully",
+          isArchived: false,
         });
       })
       .catch((error) => {
@@ -84,6 +88,12 @@ class Takeanote extends Component {
     // console.log(val);
     this.setState({
       color: val,
+    });
+  };
+
+  setArchive = () => {
+    this.setState({
+      isArchived: true,
     });
   };
 
@@ -152,7 +162,11 @@ class Takeanote extends Component {
             </div>
             <div id="icons">
               <div className="icons-takenote">
-                <Icons setColor={this.setColors} />
+                <Icons
+                  setColor={this.setColors}
+                  setArchive={this.setArchive}
+                  mode={"create"}
+                />
               </div>
               <div className="undoredo">
                 <UndoOutlined style={{ fontSize: "large" }}></UndoOutlined>

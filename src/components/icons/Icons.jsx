@@ -40,14 +40,16 @@ const Icons = (props) => {
     setPlacement(newPlacement);
   };
 
+  //color pallete functionality..............................................................
   // console.log(colorsarrfun);
   const items = colorsarrfun.map((t, idx) => (
     <div
       className="innercolor"
       onClick={() => {
-        if (props.id == "") {
+        if (props.mode == "create") {
           props.setColor(t.clr);
         } else {
+          console.log(props);
           let colorobj = {
             color: t.clr,
             noteIdList: [props.id],
@@ -55,7 +57,8 @@ const Icons = (props) => {
           obj
             .Changecolor(colorobj)
             .then((response) => {
-              window.location.reload();
+              console.log(response);
+              // window.location.reload();
             })
             .catch((error) => console.log(error));
         }
@@ -63,6 +66,26 @@ const Icons = (props) => {
       style={{ backgroundColor: t.clr }}
     ></div>
   ));
+
+  //archive functionality...................................................
+  const archivefunction = () => {
+    if (props.mode == "create") {
+      props.setArchive();
+    } else {
+      let archiveobj = {
+        noteIdList: [props.id],
+        isArchived: true,
+      };
+      obj
+        .Archive(archiveobj)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   return (
     <div>
@@ -96,7 +119,10 @@ const Icons = (props) => {
         {/* colorpallete */}
 
         <ImageOutlined style={{ fontSize: "large" }}></ImageOutlined>
-        <ArchiveOutlined style={{ fontSize: "large" }}></ArchiveOutlined>
+        <ArchiveOutlined
+          onClick={archivefunction}
+          style={{ fontSize: "large" }}
+        ></ArchiveOutlined>
         <MoreVertOutlined style={{ fontSize: "large" }}></MoreVertOutlined>
       </div>
     </div>

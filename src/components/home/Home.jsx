@@ -8,32 +8,31 @@ const obj = new Userservice();
 const Home = () => {
   const [noteArray, setnoteArray] = React.useState([]);
   useEffect(() => {
+    display();
+  }, []);
+
+  const display = () => {
     obj
       .Displaynotes()
       .then((response) => {
         // console.log(response);
-        setnoteArray(response.data.data.data);
+        let temparr = [];
+        response.data.data.data.filter((val) => {
+          if (val.isArchived == false && val.isDeleted == false) {
+            temparr.push(val);
+          }
+        });
+        console.log(temparr);
+        setnoteArray(temparr);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-
-  //   const display = () => {
-  //     obj
-  //       .Displaynotes()
-  //       .then((response) => {
-  //         // console.log(response);
-  //         setnoteArray(response.data.data.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
+  };
   return (
     <div>
-      <Takeanote />
-      <Displaynotes notesArr={noteArray} />
+      <Takeanote display={display} />
+      <Displaynotes notesArr={noteArray} display={display} />
     </div>
   );
 };
