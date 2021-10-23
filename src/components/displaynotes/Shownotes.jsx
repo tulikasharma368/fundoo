@@ -14,7 +14,7 @@ const ShowNotes = (props) => {
         <div className="note-paragraph"> {props.info.description}</div>
 
         <div className="shownotes-icons">
-          <Icons id={props.info.id} />
+          <Icons id={props.info.id} display={props.display} />
         </div>
       </div>
     </div>

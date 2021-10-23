@@ -54,10 +54,23 @@ class Userservice{
         return response;
     }
     
-    Archive(){
+    Archive(data){
+        let response = obj.postMeth(`${baseUrl}notes/archiveNotes`,data,headerConfig);
+        return response;
+    }
+
+    Delete(data){
+        let response = obj.postMeth(`${baseUrl}notes/trashNotes`,data,headerConfig);
+        return response;
+    }
+
+    ArchiveNotesList(){
         let response = obj.getMeth(`${baseUrl}notes/getArchiveNotesList`,headerConfig);
         return response;
     }
+    
 }
+
+
 
 export default Userservice;

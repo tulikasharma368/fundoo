@@ -6,7 +6,9 @@ import Userservice from "../../services/Userservice";
 // const obj = new Userservice();
 
 const Displaynotes = (props) => {
-  const noteList = props.notesArr.map((info) => <Shownotes info={info} />);
+  const noteList = props.notesArr.map((info) => (
+    <Shownotes info={info} display={props.display} />
+  ));
 
   return (
     <div className="displaynotes">

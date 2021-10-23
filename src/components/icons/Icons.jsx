@@ -34,20 +34,31 @@ const Icons = (props) => {
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState();
 
+  const [anchorElmenu, setAnchorElmenu] = React.useState(null);
+  const [openmenu, setOpenmenu] = React.useState(false);
+  const [placementmenu, setPlacementmenu] = React.useState();
+
   const handleClick = (newPlacement) => (event) => {
     setAnchorEl(event.currentTarget);
     setOpen((prev) => placement !== "top" || !prev);
     setPlacement(newPlacement);
   };
 
+  const handleClickmenu = (newPlacement) => (event) => {
+    // console.log("click")
+    setAnchorElmenu(event.currentTarget);
+    setOpenmenu((prev) => placementmenu !== "top" || !prev);
+    setPlacementmenu(newPlacement);
+  };
+
   //color pallete functionality..............................................................
-  // console.log(colorsarrfun);
   const items = colorsarrfun.map((t, idx) => (
     <div
       className="innercolor"
       onClick={() => {
         if (props.mode == "create") {
           props.setColor(t.clr);
+          // this.handleClick("top");
         } else {
           console.log(props);
           let colorobj = {
@@ -58,7 +69,13 @@ const Icons = (props) => {
             .Changecolor(colorobj)
             .then((response) => {
               console.log(response);
-              // window.location.reload();
+              if (props.mode == "archive") {
+                props.disarc();
+              } else {
+                props.display();
+              }
+
+              // this.handleClick("top");
             })
             .catch((error) => console.log(error));
         }
@@ -80,6 +97,27 @@ const Icons = (props) => {
         .Archive(archiveobj)
         .then((response) => {
           console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  const deletefunction = () => {
+    if (props.mode == "create") {
+      props.setDelete();
+    } else {
+      let archiveobj = {
+        noteIdList: [props.id],
+        isDeleted: true,
+      };
+      obj
+        .Delete(archiveobj)
+        .then((response) => {
+          console.log(response);
+          props.display();
+          props.disarc();
         })
         .catch((error) => {
           console.log(error);
@@ -123,7 +161,40 @@ const Icons = (props) => {
           onClick={archivefunction}
           style={{ fontSize: "large" }}
         ></ArchiveOutlined>
-        <MoreVertOutlined style={{ fontSize: "large" }}></MoreVertOutlined>
+        <div>
+          <Box>
+            <Popper
+              open={openmenu}
+              anchorEl={anchorElmenu}
+              placement={placementmenu}
+              transition
+            >
+              {({ TransitionProps }) => (
+                <Fade {...TransitionProps} timeout={350}>
+                  <Paper>
+                    <div className="menupoppper">
+                      <div
+                        onClick={deletefunction}
+                        style={{ cursor: "pointer" }}
+                      >
+                        Delete Note
+                      </div>
+                      <div>Add Label</div>
+                      <div>Add Drawing</div>
+                      <div>Make a Copy</div>
+                      <div>Show Checkboxes</div>
+                      <div>Copy to Google Docs</div>
+                    </div>
+                  </Paper>
+                </Fade>
+              )}
+            </Popper>
+            <MoreVertOutlined
+              onClick={handleClickmenu("bottom-start")}
+              style={{ fontSize: "large", cursor: "pointer" }}
+            ></MoreVertOutlined>
+          </Box>
+        </div>
       </div>
     </div>
   );

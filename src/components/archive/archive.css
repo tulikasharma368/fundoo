@@ -1,0 +1,29 @@
+.archivediv {
+  display: flex;
+  justify-content: center;
+}
+
+.inner-archive {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.archiveblock {
+  width: 200px;
+  padding-left: 20px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+@media only screen and (max-width: 1024px) {
+  .inner-archive {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .inner-archive {
+    display: block;
+  }
+}

@@ -24,6 +24,7 @@ class Takeanote extends Component {
       color: "#ffffff",
       snackbaropen: false,
       isArchived: false,
+      isDeleted: false,
     };
   }
 
@@ -42,6 +43,7 @@ class Takeanote extends Component {
       description: this.state.description,
       color: this.state.color,
       isArchived: this.state.isArchived,
+      isDeleted: this.state.isDeleted,
     };
     console.log(notesobj);
     obj
@@ -59,6 +61,7 @@ class Takeanote extends Component {
           color: "#ffffff",
           snackbarmsg: "Note added successfully",
           isArchived: false,
+          isDeleted: false,
         });
       })
       .catch((error) => {
@@ -97,6 +100,12 @@ class Takeanote extends Component {
     });
   };
 
+  setDelete = () => {
+    this.setState({
+      isDeleted: true,
+    });
+  };
+
   render() {
     return (
       <div className="takeanote">
@@ -124,7 +133,7 @@ class Takeanote extends Component {
               aria-label="empty textarea"
               placeholder="Take a note..."
             />
-            <div>
+            <div className="takeanotethreeicons">
               <IconButton size="large">
                 <CheckBoxOutlined className="check" />
               </IconButton>
@@ -165,6 +174,7 @@ class Takeanote extends Component {
                 <Icons
                   setColor={this.setColors}
                   setArchive={this.setArchive}
+                  setDelete={this.setDelete}
                   mode={"create"}
                 />
               </div>

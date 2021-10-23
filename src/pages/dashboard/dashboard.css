@@ -1,54 +1,55 @@
 .MuiAppBar-root {
-    background-color: white !important;
+  background-color: white !important;
 }
 
 .css-10hburv-MuiTypography-root {
-    font-size: -.85rem !important;
+  font-size: -0.85rem !important;
 }
 
 .css-19z1ozs-MuiPaper-root-MuiAppBar-root {
-    color:black !important;
+  color: black !important;
 }
 
 .css-dhvns5-MuiButtonBase-root-MuiIconButton-root {
-    color: black !important;
+  color: black !important;
 }
 
 .css-8u39c-MuiTypography-root {
-    color: black !important;
+  color: black !important;
 }
 
-.keep_logo{
-    height: 30px;
-    margin-right: 10px;
+.keep_logo {
+  height: 30px;
+  margin-right: 10px;
 }
 
-.searchbox{
-    background-color: #F1F3F4;
-    border-radius: 2%;
-    margin-left: 30px;
-    width: 55%;
+.searchbox {
+  background-color: #f1f3f4;
+  border-radius: 2%;
+  margin-left: 30px;
+  width: 55%;
 }
-.searchicon{
-    margin-left: -20px;
-    color: #5f6368;
+.searchicon {
+  margin-left: -20px;
+  color: #5f6368;
 }
-.css-1kcggdq-MuiInputBase-root .MuiInputBase-input{
-    height: 25px;
-    width: 100%;
-}
-
-.dashboardIcons{
-    display: flex;
-    justify-content: space-evenly;
-    width: 13%;
-    margin-left: 15px;
-    color: #5f6368;
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
+  height: 25px;
+  width: 100%;
 }
 
-.appsicon{
-    display: flex;
-    margin-left: 15px;
-    color: #5f6368;
+.dashboardIcons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 13%;
+  margin-left: 15px;
+  color: #5f6368;
 }
 
+.appsicon {
+  display: flex;
+  margin-left: 15px;
+  color: #5f6368;
+  justify-content: space-between;
+  width: 80px;
+}

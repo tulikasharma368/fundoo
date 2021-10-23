@@ -3,3 +3,22 @@
   justify-content: space-evenly;
   width: 100%;
 }
+
+.menupoppper {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 15px;
+  box-shadow: 0.5px 0.5px 2px 2px lightgray;
+  border-radius: 5px;
+}
+
+.forminput2 {
+  background-color: inherit !important;
+  outline: none;
+}
+
+.title {
+  background-color: inherit;
+  outline: none !important;
+}

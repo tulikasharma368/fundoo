@@ -1,31 +1,41 @@
-.displaynotes{
-    display: flex;
-    justify-content: center;
-    height: 40vh;
-    margin-top: 70px;
+.displaynotes {
+  display: flex;
+  justify-content: center;
+  /* height: 40vh; */
+  width: 90%;
+  margin-top: 70px;
+  margin-left: -100px;
 }
 
-.inner-display{
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 50%;
+.inner-display {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 50%;
 }
 
-.note_content{
-    padding: 10px;
-    border: 2px solid gainsboro;
-    border-radius: 8px;
+.note_content {
+  padding: 10px;
+  border: 2px solid gainsboro;
+  border-radius: 8px;
 }
 
-@media only screen and (max-width:1024px) {
-    .inner-display{
-        grid-template-columns: 1fr 1fr;
-    }   
+@media only screen and (max-width: 1024px) {
+  .inner-display {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .displaynotes {
+    margin-left: -20px;
+  }
 }
 
-@media only screen and (max-width:700px) {
-    .inner-display{
-        display: block;
-    }   
+@media only screen and (max-width: 700px) {
+  .inner-display {
+    display: block;
+  }
+
+  .displaynotes {
+    margin-left: 15px;
+  }
 }

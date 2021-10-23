@@ -22,7 +22,7 @@ const Home = () => {
             temparr.push(val);
           }
         });
-        console.log(temparr);
+        // console.log(temparr);
         setnoteArray(temparr);
       })
       .catch((error) => {
