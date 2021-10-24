@@ -179,6 +179,11 @@ export default function Dashboard() {
     window.location = "/dashboard/delete";
   };
 
+  const logout = () => {
+    localStorage.clear();
+    window.location = "/";
+  };
+
   return (
     <div>
       <Box sx={{ display: "flex" }}>
@@ -197,7 +202,12 @@ export default function Dashboard() {
               <MenuIcon />
             </IconButton>
             <img src={keep} className="keep_logo" alt="keep image" />
-            <Typography variant="h6" noWrap component="div">
+            <Typography
+              classname="fundooheader"
+              variant="h6"
+              noWrap
+              component="div"
+            >
               Fundoo Notes
             </Typography>
             <box className="searchbox">
@@ -222,6 +232,7 @@ export default function Dashboard() {
               <div>
                 <Box sx={{ width: 500 }}>
                   <Popper
+                    className="popperlogout"
                     open={openperson}
                     anchorEl={anchorElperson}
                     placement={placementperson}
@@ -229,10 +240,17 @@ export default function Dashboard() {
                   >
                     {({ TransitionProps }) => (
                       <Fade {...TransitionProps} timeout={350}>
-                        <Paper>
+                        <Paper className="logout-content">
                           <div>
-                            <h3>Name</h3>
-                            <p>name@gmail.com</p>
+                            <AccountCircleIcon className="logouticoninpopper" />
+                            <h3>
+                              {localStorage.getItem("fname")} <span> </span>
+                              {localStorage.getItem("fname")}
+                            </h3>
+                            <p>{localStorage.getItem("email")}</p>
+                            <button className="logoutbutton" onClick={logout}>
+                              Sign out
+                            </button>
                           </div>
                         </Paper>
                       </Fade>

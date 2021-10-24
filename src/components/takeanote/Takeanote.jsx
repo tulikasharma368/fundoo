@@ -6,7 +6,7 @@ import InsertPhotoOutlined from "@mui/icons-material/InsertPhotoOutlined";
 import UndoOutlined from "@mui/icons-material/UndoOutlined";
 import RedoOutlined from "@mui/icons-material/RedoOutlined";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
-import { Snackbar, IconButton } from "@mui/material";
+import { Snackbar, IconButton, TextField } from "@mui/material";
 import Icons from "../icons/Icons";
 import Userservices from "../../services/Userservice";
 let obj = new Userservices();
@@ -161,11 +161,15 @@ class Takeanote extends Component {
               </div>
             </div>
             <div className="hide-takenote">
-              <input
+              <TextField
                 className="forminput2"
                 name="description"
                 aria-label="empty textarea"
                 placeholder="Take a note..."
+                variant="standard"
+                multiline
+                fullWidth
+                InputProps={{ disableUnderline: true }}
                 onChange={(e) => this.change(e)}
               />
             </div>
