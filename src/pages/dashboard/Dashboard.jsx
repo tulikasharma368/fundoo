@@ -2,6 +2,7 @@ import * as React from "react";
 import "./dashboard.css";
 import Home from "../../components/home/Home";
 import Archive from "../../components/archive/Archive";
+import Delete from "../../components/delete/delete";
 import keep from "./keep.png";
 import { styled, alpha } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
@@ -166,8 +167,16 @@ export default function Dashboard() {
     }
   };
 
+  const redirecttonotes = () => {
+    window.location = "/dashboard";
+  };
+
   const redirecttoarchive = () => {
     window.location = "/dashboard/archive";
+  };
+
+  const redirecttodelete = () => {
+    window.location = "/dashboard/delete";
   };
 
   return (
@@ -244,7 +253,7 @@ export default function Dashboard() {
                 <ListItem button key={text}>
                   <ListItemIcon>
                     {index <= 0 ? (
-                      <LightbulbOutlinedIcon />
+                      <LightbulbOutlinedIcon onClick={redirecttonotes} />
                     ) : <InboxIcon /> && index <= 1 ? (
                       <NotificationsNoneIcon />
                     ) : <InboxIcon /> && index <= 2 ? (
@@ -252,7 +261,7 @@ export default function Dashboard() {
                     ) : <InboxIcon /> && index <= 3 ? (
                       <ArchiveOutlinedIcon onClick={redirecttoarchive} />
                     ) : <InboxIcon /> && index <= 4 ? (
-                      <DeleteOutlineOutlinedIcon />
+                      <DeleteOutlineOutlinedIcon onClick={redirecttodelete} />
                     ) : (
                       <InboxIcon />
                     )}
@@ -270,8 +279,8 @@ export default function Dashboard() {
 
       <Switch>
         <Route exact path="/dashboard" component={Home} />
-        {/* <Route path="/" component={Archive} /> */}
         <Route exact path="/dashboard/archive" component={Archive} />
+        <Route exact path="/dashboard/delete" component={Delete} />
       </Switch>
 
       {/* <Home/> */}

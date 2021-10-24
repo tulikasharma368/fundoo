@@ -71,6 +71,8 @@ const Icons = (props) => {
               console.log(response);
               if (props.mode == "archive") {
                 props.disarc();
+              } else if (props.mode == "delete") {
+                props.disdel();
               } else {
                 props.display();
               }
@@ -104,6 +106,7 @@ const Icons = (props) => {
     }
   };
 
+  // delete functionality......................................................
   const deletefunction = () => {
     if (props.mode == "create") {
       props.setDelete();
@@ -135,6 +138,7 @@ const Icons = (props) => {
         <div>
           <Box sx={{ width: 500 }}>
             <Popper
+              className="poppopmenu"
               open={open}
               anchorEl={anchorEl}
               placement={placement}
@@ -164,6 +168,7 @@ const Icons = (props) => {
         <div>
           <Box>
             <Popper
+              className="poppopmenu"
               open={openmenu}
               anchorEl={anchorElmenu}
               placement={placementmenu}

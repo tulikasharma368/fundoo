@@ -1,71 +1,71 @@
-.css-qxh7fn{
-    width: 0% !important;
-    height: 0% !important;
-    cursor: pointer;
+.css-qxh7fn {
+  width: 0% !important;
+  height: 0% !important;
+  cursor: pointer;
 }
 
-
-
-.innercolor:hover{
-    border: 2px solid gray;
+.innercolor:hover {
+  border: 2px solid gray;
 }
 
-.colorpallete-box{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 5px;
-    padding: 10px;
-    height: 100px;
-    width: 130px;
-    margin-bottom: 5px;
+.colorpallete-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  padding: 10px;
+  height: 100px;
+  width: 130px;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 100000;
 }
 
-.innercolor{
-    height: 24px;
-    width: 24px;
-    border-radius: 22px;
-    cursor: pointer;
+.innercolor {
+  height: 24px;
+  width: 24px;
+  border-radius: 22px;
+  cursor: pointer;
 }
 
-.innercolor1{
-    background-color: #FFFFFF;
-    border :1px solid grey;
+.innercolor1 {
+  background-color: #ffffff;
+  border: 1px solid grey;
 }
 
-.innercolor2{
-    background-color: #f28b82;
+.innercolor2 {
+  background-color: #f28b82;
 }
 
-.innercolor3{
-    background-color:#fbbc04;
+.innercolor3 {
+  background-color: #fbbc04;
 }
-.innercolor4{
-    background-color:#fff475;
+.innercolor4 {
+  background-color: #fff475;
 }
-.innercolor5{
-    background-color:#ccff90;
+.innercolor5 {
+  background-color: #ccff90;
 }
-.innercolor6{
-    background-color:#a7ffeb;
+.innercolor6 {
+  background-color: #a7ffeb;
 }
-.innercolor7{
-    background-color:#cbf0f8;
+.innercolor7 {
+  background-color: #cbf0f8;
 }
-.innercolor8{
-    background-color:#aecbfa;
-}
-
-.innercolor9{
-    background-color:#d7aefb;
+.innercolor8 {
+  background-color: #aecbfa;
 }
 
-.innercolor10{
-    background-color:#fdcfe8;
+.innercolor9 {
+  background-color: #d7aefb;
 }
 
-.innercolor11{
-    background-color:#e6c9a8;
+.innercolor10 {
+  background-color: #fdcfe8;
 }
-.innercolor12{
-    background-color:#e8eaed;
+
+.innercolor11 {
+  background-color: #e6c9a8;
+}
+.innercolor12 {
+  background-color: #e8eaed;
 }

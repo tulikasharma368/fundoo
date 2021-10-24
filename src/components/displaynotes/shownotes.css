@@ -5,19 +5,21 @@
   width: 17vw;
 }
 
+.gapforicons {
+  padding-bottom: 25%;
+}
 .note-testContainer > h4 {
   font-size: 1.1rem;
   margin-left: 1rem;
 }
 
 .note-paragraph {
-  margin-left: 1rem;
   font-size: 0.875rem;
 }
 
-.shownotes-icons {
+/* .shownotes-icons {
   margin-top: 25%;
-}
+} */
 
 /* media queries */
 @media only screen and (max-width: 1024px) {

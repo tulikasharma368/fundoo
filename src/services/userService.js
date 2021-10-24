@@ -69,6 +69,15 @@ class Userservice{
         return response;
     }
     
+    DeletedNotesList(){
+        let response = obj.getMeth(`${baseUrl}notes/getTrashNotesList`,headerConfig);
+        return response;
+    }
+    
+    Updatenote(data){
+        let response = obj.postMeth(`${baseUrl}notes/updateNotes`,data,headerConfig);
+        return response;
+    }
 }
 
 

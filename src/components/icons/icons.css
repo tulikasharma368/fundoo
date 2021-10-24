@@ -11,6 +11,11 @@
   padding: 15px;
   box-shadow: 0.5px 0.5px 2px 2px lightgray;
   border-radius: 5px;
+  position: relative;
+}
+
+.poppopmenu {
+  z-index: 3000 !important;
 }
 
 .forminput2 {

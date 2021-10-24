@@ -1,0 +1,27 @@
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  width: 70vw !important;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  border: none !important;
+  color: inherit !important;
+  width: 100% !important;
+  padding: 0% !important;
+  justify-content: left !important;
+  padding-left: 15px !important;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root :hover {
+  color: inherit !important;
+}
+
+.popup-bottom {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  width: 100%;
+  padding-left: -300px;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  margin-top: -20px !important;
+}
