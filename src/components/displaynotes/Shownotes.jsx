@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import "./shownotes.css";
 import "../dialogbox/dialogbox.css";
@@ -26,6 +27,10 @@ const ShowNotes = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    onUpdate();
+  }, []);
 
   const onUpdate = () => {
     let Data = {
@@ -91,7 +96,9 @@ const ShowNotes = (props) => {
             >
               <Icons id={props.info.id} />
               <DialogActions>
-                <Button onClick={onUpdate}>Close</Button>
+                <Button style={{ color: "black" }} onClick={onUpdate}>
+                  Close
+                </Button>
               </DialogActions>
             </div>
           </Dialog>

@@ -77,7 +77,13 @@ class Userservice{
     Updatenote(data){
         let response = obj.postMeth(`${baseUrl}notes/updateNotes`,data,headerConfig);
         return response;
+    } 
+
+    Collaborate(data){
+        let response = obj.postMeth(`${baseUrl}user/searchUserList`,data,headerConfig);
+        return response;
     }
+
 }
 
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Collaborator from "../collaborator/Collaborator";
 import AddAlertOutlined from "@mui/icons-material/AddAlertOutlined";
 import PersonAddOutlined from "@mui/icons-material/PersonAddOutlined";
 import ImageOutlined from "@mui/icons-material/ImageOutlined";
@@ -132,7 +133,13 @@ const Icons = (props) => {
     <div>
       <div className="icons-comp">
         <AddAlertOutlined style={{ fontSize: "large" }}></AddAlertOutlined>
-        <PersonAddOutlined style={{ fontSize: "large" }}></PersonAddOutlined>
+        <Collaborator
+          collaborator={
+            <PersonAddOutlined
+              style={{ fontSize: "large" }}
+            ></PersonAddOutlined>
+          }
+        />
 
         {/* colorpallete */}
         <div>

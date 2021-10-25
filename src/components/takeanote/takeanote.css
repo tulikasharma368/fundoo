@@ -63,7 +63,6 @@
 
 #icons {
   display: flex;
-  /* justify-content: space-between; */
   margin-top: 20px;
   margin-bottom: 15px;
   color: #202124;
@@ -116,7 +115,31 @@
   }
 
   #form1 {
-    width: 80vw;
+    width: 75vw;
     margin-left: 50px;
+  }
+
+  #form2 {
+    width: 80%;
+    margin-left: 50px;
+  }
+
+  #icons {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .takeanotethreeicons {
+    width: 100%;
+    margin-left: -140px;
+  }
+
+  #form2 {
+    width: 70%;
+  }
+
+  #icons {
+    margin-left: 20px;
   }
 }
