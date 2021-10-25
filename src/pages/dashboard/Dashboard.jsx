@@ -155,7 +155,7 @@ export default function Dashboard() {
 
   const handleClickperson = (newPlacement) => (event) => {
     setAnchorElperson(event.currentTarget);
-    setOpenperson((prev) => placementperson !== "top" || !prev);
+    setOpenperson((prev) => placementperson !== "bottom" || !prev);
     setPlacementperson(newPlacement);
   };
 

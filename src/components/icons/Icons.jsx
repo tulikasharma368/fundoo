@@ -45,9 +45,9 @@ const Icons = (props) => {
   };
 
   const handleClickmenu = (newPlacement) => (event) => {
-    // console.log("click")
+    console.log(event);
     setAnchorElmenu(event.currentTarget);
-    setOpenmenu((prev) => placementmenu !== "top" || !prev);
+    setOpenmenu((prev) => placementmenu !== "bottom-start" || !prev);
     setPlacementmenu(newPlacement);
   };
 
