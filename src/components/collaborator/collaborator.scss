@@ -1,5 +1,6 @@
 .sharediv {
   display: flex;
+  margin-left: 25px;
   .shareinput {
     margin-top: 0%;
     margin-left: 10px;
@@ -8,4 +9,43 @@
 
 .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
   min-width: none !important;
+}
+
+.css-1ps6pg7-MuiPaper-root {
+  box-shadow: none !important;
+}
+
+// .email-list {
+//   max-height: 500px;
+// }
+
+.css-h4y409-MuiList-root {
+  width: 30% !important;
+}
+
+// .email_list {
+//   position: fixed !important;
+//   top: 23rem !important;
+//   left: 28.8rem;
+//   z-index: 100 !important;
+//   background-color: #fff;
+//   border: 1px solid #e4d6d6;
+//   overflow: scroll;
+// }
+
+.data {
+  // margin-left: 25px;
+  h3 {
+    margin-top: 0%;
+    margin-left: 10px;
+  }
+  p {
+    margin-top: 0%;
+    margin-left: 10px;
+  }
+}
+
+.collabcollab {
+  display: flex;
+  margin-left: 20px;
 }

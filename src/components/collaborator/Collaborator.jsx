@@ -4,21 +4,27 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import PersonAddOutlined from "@mui/icons-material/PersonAddOutlined";
 import PersonAddRoundedIcon from "@mui/icons-material/PersonAddRounded";
 import { Paper, Menu } from "@mui/material";
 import MenuList from "@mui/material/MenuList";
+import Stack from "@mui/material/Stack";
+import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import Userservices from "../../services/Userservice";
 let obj = new Userservices();
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [collab, setcollab] = React.useState("");
   const [collabarr, setcollabarr] = React.useState([]);
+  const [collabdataarr, setcollabdataarr] = React.useState([
+    {
+      firstName: localStorage.getItem("fname"),
+      lastName: localStorage.getItem("lname") + "(Owner)",
+      email: localStorage.getItem("email"),
+      userId: localStorage.getItem("id"),
+    },
+  ]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,16 +32,16 @@ export default function FormDialog(props) {
 
   const handleClose = () => {
     setOpen(false);
-    setcollab("");
     setcollabarr([]);
   };
 
   const handleshare = (e) => {
-    setcollab(e.target.value);
     let data = {
       searchWord: e.target.value,
     };
-    if (e.target.value !== "") {
+    if (e.target.value == "") {
+      setcollabarr([]);
+    } else {
       obj
         .Collaborate(data)
         .then((response) => setcollabarr(response.data.data.details))
@@ -43,8 +49,36 @@ export default function FormDialog(props) {
     }
   };
 
+  const userDetails = (val) => {
+    console.log(val);
+    var newArray = collabdataarr.slice();
+    newArray.push(val);
+    console.log(newArray);
+    setcollabdataarr(newArray);
+  };
+
   const userData = collabarr.map((values) => {
-    return <MenuItem>{values.email}</MenuItem>;
+    return (
+      <MenuItem onClick={() => userDetails(values)}>{values.email}</MenuItem>
+    );
+  });
+
+  const userList = collabdataarr.map((val) => {
+    return (
+      <div className="collabcollab">
+        <Avatar
+          style={{ backgroundColor: "brown", textTransform: "capitalize" }}
+        >
+          {val.firstName.charAt(0)}
+        </Avatar>
+        <div className="data">
+          <h3 style={{ marginBottom: "0%" }}>
+            {val.firstName} {val.lastName}
+          </h3>
+          <p>{val.email}</p>
+        </div>
+      </div>
+    );
   });
 
   return (
@@ -54,33 +88,46 @@ export default function FormDialog(props) {
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Collaborators</DialogTitle>
-        <DialogContent>
-          <h3 style={{ marginBottom: "0%" }}>
-            {localStorage.getItem("fname")} <span> </span>
-            {localStorage.getItem("fname")}
-          </h3>
-          <p style={{ marginTop: "0%" }}>{localStorage.getItem("email")}</p>
-          <div className="sharediv">
+        {userList}
+        {/* <div>
+          <div className="data">
             <PersonAddRoundedIcon />
-            <TextField
-              className="shareinput"
-              margin="dense"
-              id="share"
-              placeholder="Person or email to share with"
-              type="text"
-              variant="standard"
-              multiline
-              fullWidth
-              InputProps={{ disableUnderline: true }}
-              onChange={handleshare}
-            />
+            <h3 style={{ marginBottom: "0%" }}>
+              {localStorage.getItem("fname")} <span> </span>
+              {localStorage.getItem("fname")}
+            </h3>
           </div>
-          <div>
-            <Paper elevation={1}>
-              <MenuList className="email_list">{userData}</MenuList>
-            </Paper>
-          </div>
-        </DialogContent>
+          <p style={{ marginTop: "0%", marginLeft: "30px" }}>
+            {localStorage.getItem("email")}
+          </p>
+        </div> */}
+        <div className="sharediv">
+          <PersonAddRoundedIcon />
+          <TextField
+            className="shareinput"
+            margin="dense"
+            id="share"
+            placeholder="Person or email to share with"
+            type="text"
+            variant="standard"
+            multiline
+            fullWidth
+            InputProps={{ disableUnderline: true }}
+            onChange={handleshare}
+          />
+        </div>
+
+        <Stack direction="row" spacing={2}>
+          <Paper>
+            <MenuList
+              id="composition-menu"
+              aria-labelledby="composition-button"
+              className="email_list"
+            >
+              {userData}
+            </MenuList>
+          </Paper>
+        </Stack>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button>Save</Button>

@@ -27,3 +27,14 @@
   background-color: inherit;
   outline: none !important;
 }
+
+.collabicon {
+  /* margin-left: -20px; */
+  /* width: 10px; */
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  min-width: 0% !important;
+  vertical-align: baseline !important;
+  margin-left: -15px !important;
+}
