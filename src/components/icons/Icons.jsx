@@ -134,6 +134,7 @@ const Icons = (props) => {
       <div className="icons-comp">
         <AddAlertOutlined style={{ fontSize: "large" }}></AddAlertOutlined>
         <Collaborator
+          displaycollabnotes={props.displaycollabnotes}
           collaborator={
             <PersonAddOutlined
               className="collabicon"

@@ -53,7 +53,8 @@ export default function FormDialog(props) {
     console.log(val);
     var newArray = collabdataarr.slice();
     newArray.push(val);
-    console.log(newArray);
+    // console.log(newArray);
+    setcollabarr([]);
     setcollabdataarr(newArray);
   };
 
@@ -81,6 +82,14 @@ export default function FormDialog(props) {
     );
   });
 
+  const handleSave = () => {
+    let displayarr = collabdataarr.slice(1);
+    // console.log(displayarr);
+    props.displaycollabnotes(displayarr);
+    setOpen(false);
+    setcollabarr([]);
+  };
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -89,18 +98,6 @@ export default function FormDialog(props) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Collaborators</DialogTitle>
         {userList}
-        {/* <div>
-          <div className="data">
-            <PersonAddRoundedIcon />
-            <h3 style={{ marginBottom: "0%" }}>
-              {localStorage.getItem("fname")} <span> </span>
-              {localStorage.getItem("fname")}
-            </h3>
-          </div>
-          <p style={{ marginTop: "0%", marginLeft: "30px" }}>
-            {localStorage.getItem("email")}
-          </p>
-        </div> */}
         <div className="sharediv">
           <PersonAddRoundedIcon />
           <TextField
@@ -130,7 +127,7 @@ export default function FormDialog(props) {
         </Stack>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button>Save</Button>
+          <Button onClick={handleSave}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>

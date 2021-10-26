@@ -6,7 +6,7 @@ import InsertPhotoOutlined from "@mui/icons-material/InsertPhotoOutlined";
 import UndoOutlined from "@mui/icons-material/UndoOutlined";
 import RedoOutlined from "@mui/icons-material/RedoOutlined";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
-import { Snackbar, IconButton, TextField } from "@mui/material";
+import { Snackbar, IconButton, TextField, Avatar } from "@mui/material";
 import Icons from "../icons/Icons";
 import Userservices from "../../services/Userservice";
 let obj = new Userservices();
@@ -25,6 +25,7 @@ class Takeanote extends Component {
       snackbaropen: false,
       isArchived: false,
       isDeleted: false,
+      displaycollab: [],
     };
   }
 
@@ -62,6 +63,7 @@ class Takeanote extends Component {
           snackbarmsg: "Note added successfully",
           isArchived: false,
           isDeleted: false,
+          displaycollab: [],
         });
       })
       .catch((error) => {
@@ -106,7 +108,20 @@ class Takeanote extends Component {
     });
   };
 
+  displaycollabnotes = (val) => {
+    console.log(val);
+    this.setState({
+      displaycollab: val,
+    });
+  };
+
   render() {
+    const collabicons = this.state.displaycollab.map((val) => {
+      return (
+        <Avatar className="takeanoteavatars">{val.firstName.charAt(0)}</Avatar>
+      );
+    });
+
     return (
       <div className="takeanote">
         <Snackbar
@@ -173,6 +188,8 @@ class Takeanote extends Component {
                 onChange={(e) => this.change(e)}
               />
             </div>
+
+            <div className="collabiconstakeanote">{collabicons}</div>
             <div id="icons">
               <div className="icons-takenote">
                 <Icons
@@ -180,6 +197,7 @@ class Takeanote extends Component {
                   setArchive={this.setArchive}
                   setDelete={this.setDelete}
                   mode={"create"}
+                  displaycollabnotes={this.displaycollabnotes}
                 />
               </div>
               <div className="undoredo">

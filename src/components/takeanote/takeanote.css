@@ -143,3 +143,21 @@
     margin-left: 20px;
   }
 }
+
+.something {
+  border: solid 2px black;
+  height: 50px;
+}
+
+.collabiconstakeanote {
+  display: flex;
+  margin-top: 10px;
+}
+
+.takeanoteavatars {
+  background-color: brown !important;
+  text-transform: uppercase !important;
+  margin-right: 5px !important;
+  width: 30px !important;
+  height: 30px !important;
+}
